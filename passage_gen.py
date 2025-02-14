@@ -23,15 +23,21 @@ def generate(prompt):
     for attempt in range(retry_limit):
         try:
             response = client.models.generate_content(
-                model="gemini-2.0-flash", contents=prompt, config=types.GenerateContentConfig(temperature=0.7, max_output_tokens=1024)
+                model="gemini-2.0-flash", contents=prompt, config=types.GenerateContentConfig(temperature=0.7, max_output_tokens=1280)
             )
             return process_json_output(response.text)
         except:
             print("Request failed. Retrying...")
-            time.sleep(5) # wait 5 seconds before sending another request to Gemini
+            if attempt != retry_limit-1:
+                time.sleep(10) # wait 10 seconds before sending another request to Gemini
             continue
     return False
 
-monologue = json.loads(generate(constants.MONOLOGUE_PROMPT))
+# monologue = generate(constants.MONOLOGUE_PROMPT)
+# print(monologue)
+
+dialogue = generate(constants.DIALOGUE_PROMPT)
+print(dialogue)
+
 
 # print(constants.GRADING_PROMPT.format(user_answer="test", expected_answer="test2"))
