@@ -1,0 +1,4 @@
+kokoro
+soundfile
+numpy
+google-genai

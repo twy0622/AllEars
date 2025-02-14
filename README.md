@@ -14,12 +14,6 @@ This projects creates an English Listening Test similar to CEFL (Cambridge Engli
 - **Realistic Test Simulation**: Includes a 10-minute timer, no replay options, and instant score display.  
 - **Feedback Mode**: Shows incorrect answers with solutions side-by-side after the test.  
 
-## Development Roadmap
-- [x] Core audio generation with Kokoro TTS
-- [ ] Monologue/Dialogue Generation
-- [ ] Question Generation
-- [ ] Web UI Development
-
 ## How It Works
 1. **Start Test**: Click "Start Test" on the home page.  
 2. **Test Begins**:  
@@ -30,6 +24,12 @@ This projects creates an English Listening Test similar to CEFL (Cambridge Engli
    - Displays your score.  
    - Shows incorrect answers with solutions side-by-side.  
    - Option to replay the generated audio or try again with a new test.  
+
+## Development Roadmap
+- [x] Core audio generation with Kokoro TTS
+- [ ] Monologue/Dialogue Generation
+- [ ] Question Generation
+- [ ] Web UI Development
 
 ## Future Enhancements
 - **Kokoro ONNX Integration**: Less dependencies and can run on edge devices.
