@@ -1,14 +1,7 @@
 """
-generate a passage in the first person pov of a girl named sarah (not needed to mentioned in the passage) talking about her vacation in bali and how much fun she had. with at least 300 words. each paragraph should have a maximum of 60 words and no minimum.
-
-i need u to annotate the text if it has a certain pronunciation as i will be passing this passage into a text to speech model and i dont want it to botch the pronunciations. annotate it like this e.g. [Kokoro](/kˈOkəɹO/). Do not annotate English words, only Names or Words in a different language.
-
-The (pronunciation) tag should follow the indicated word, not the entire phrase.
-e.g.
-[Kokoro Language](/kˈOkəɹO/) is wrong.
-[Kokoro](/kˈOkəɹO/) is correct.
+Script to generates text to speech using Kokoro
+TODO: need to fix KPipeline for british lang_code = 'b'
 """
-# 3️⃣ Initalize a pipeline
 from kokoro import KPipeline
 import soundfile as sf
 import random
@@ -30,11 +23,12 @@ At night, we wandered through bustling markets filled with vibrant colors. Stree
 We ended our journey watching dolphins near [Lovina](/loʊˈviːnə/). Their playful leaps left me awestruck. As they danced alongside the boat, I realized how lucky I was. This vacation wasn’t just about seeing beautiful places—it was about feeling alive.
 '''
 
+#* preselected 4 voices
 voice_list = [
-    'af_heart',
-    'am_puck',
-    'bf_emma',
-    'bm_daniel'
+    'af_heart',     # american female
+    'am_puck',      # american male
+    'bf_emma',      # british female
+    'bm_daniel'     # british male
 ]
 
 voice = random.choice(voice_list)
