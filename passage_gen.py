@@ -7,7 +7,6 @@ from google.genai import types
 
 import constants
 import time
-import json
 
 client = genai.Client(api_key=constants.APIKEY)
 
@@ -32,12 +31,3 @@ def generate(prompt):
                 time.sleep(10) # wait 10 seconds before sending another request to Gemini
             continue
     return False
-
-# monologue = generate(constants.MONOLOGUE_PROMPT)
-# print(monologue)
-
-dialogue = generate(constants.DIALOGUE_PROMPT)
-print(dialogue)
-
-
-# print(constants.GRADING_PROMPT.format(user_answer="test", expected_answer="test2"))
