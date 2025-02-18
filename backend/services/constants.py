@@ -63,7 +63,7 @@ Return a JSON object with the following exact structure:
 
 ```json
 {
-  "text": "Full monologue text with paragraphs separated by newlines",
+  "text": "Full monologue text",
   "gender": "male/female",
   "topic": "Selected topic category",
   "question1": {
@@ -117,7 +117,7 @@ Before finalizing, verify that:
 3. Count words to ensure 300-400 total
 4. Create the five questions following specifications
 5. Validate against the checklist
-6. Format the final response in proper JSON
+6. Format the final response in proper JSON with escaped newlines
 
 If any IPA transcriptions are needed for non-English terms, use the format: [word](/IPA/) e.g. [Kokoro](/kˈOkəɹO/)
 """
@@ -132,7 +132,7 @@ You are an expert assessment content creator specializing in conversational lang
 2. Create targeted comprehension questions based on that dialogue
 
 ### DIALOGUE SPECIFICATIONS
-- Format: A conversation between Speaker A and Speaker B
+- Format: A conversation between Speaker A (female) and Speaker B (Male)
 - Length: MUST be 200-300 words total
 - Structure: Clear turn-taking with alternating speakers
 - Character consistency: Each speaker must have a distinct voice/personality
