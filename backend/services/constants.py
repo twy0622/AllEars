@@ -249,7 +249,7 @@ GRADING_PROMPT = """# GRADING PROMPT FOR SUBJECTIVE QUESTION (Question 5)
 You are an expert assessment evaluator specializing in open-ended responses. Your task is to evaluate a user's answer to a subjective comprehension question about a monologue. 
 
 ## Input Data
-- Original Monologue: {monologue_text}
+- Original Monologue: {passage_text}
 - Question: {question5_text}
 - Expected Answer: {expected_answer}
 - User's Answer: {user_answer}
@@ -290,10 +290,10 @@ Mark as "Incorrect" if:
 
 ## Output Format
 ```json
-{
+{{
   "grade": "Correct/Incorrect",
   "explanation": "Brief explanation of why the answer was marked as correct or incorrect, referencing specific elements from the user's response"
-}"""
+}}"""
 
 # text = "A: Hi Sarah, thanks for meeting me to discuss the Johnson project. I wanted to get your input on the marketing strategy before we finalize it.\nB: Hi Mark, thanks for including me. I’ve reviewed the initial plan, and while I think the overall concept is strong, I have some concerns about the target demographic. \nA: Oh? What are your specific concerns? I thought targeting millennials was a safe bet, given their online presence.\nB: I understand the logic, but I think we're overlooking a significant portion of potential customers: the 35-50 age group. They have more disposable income and are actively looking for solutions like the one Johnson provides. \nA: That's a fair point. We did consider that demographic initially, but the data suggested millennials were more responsive to online advertising campaigns. We were aiming for quick results and maximum reach. \nB: I see. But are we prioritizing speed over long-term sustainability? The 35-50 group might be slower to convert, but they are also more likely to become loyal customers. Plus, they often rely on word-of-mouth, which can be incredibly powerful.\nA: Okay, you’ve given me something to think about. Perhaps we could explore a dual-pronged approach? Target millennials with our initial online campaign, but also allocate some resources to reach the older demographic through more traditional channels, like print ads or targeted social media campaigns.\nB: That sounds much more balanced. We could also tailor the messaging to resonate with each group. Millennials might be drawn to the innovative aspects of the product, while the older group might be more interested in its reliability and practicality.\nA: Exactly! And we can track the results of each campaign to see which approach is more effective. What kind of budget adjustments would we need to make to accommodate this dual approach?\nB: I think we can reallocate about 15% of the online advertising budget to the print and targeted social media campaigns. I'll draft a revised budget proposal for you by the end of the week.\nA: Fantastic. I really appreciate your insights, Sarah. It’s good to have a different perspective. I think this revised strategy will give us a much better chance of success.\nB: Glad I could help, Mark. I think it will too. Collaboration is key!"
 

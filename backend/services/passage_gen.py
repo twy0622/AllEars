@@ -12,12 +12,12 @@ from services.constants import *
 
 client = genai.Client(api_key=APIKEY)
 
-def generate(prompt):
+def generate(prompt, max_tokens=1280):
     retry_limit = 3
     for attempt in range(retry_limit):
         try:
             response = client.models.generate_content(
-                model="gemini-2.0-flash", contents=prompt, config=types.GenerateContentConfig(temperature=0.7, max_output_tokens=1280)
+                model="gemini-2.0-flash", contents=prompt, config=types.GenerateContentConfig(temperature=0.7, max_output_tokens=max_tokens)
             )
             return process_json_output(response.text)
         except:
@@ -35,11 +35,6 @@ def generate_monologue():
 def generate_dialogue():
     """Generate a dialogue and its comprehension questions."""
     prompt = DIALOGUE_PROMPT
-    return generate(prompt)
-
-def generate_grading(response):
-    """Evaluate user response for question 5 against the generated answer guideline to be either 'correct' or 'incorrect'"""
-    prompt = GRADING_PROMPT
     return generate(prompt)
 
 # import sys
