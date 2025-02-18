@@ -52,6 +52,7 @@ After creating the monologue, design five questions that test genuine comprehens
    - Contains 2-4 words
    - Represents a unique detail from the monologue
    - Cannot be guessed without reading the text
+   - Avoid coordinating conjunctions (for, and, nor, but, or, yet, so)
 5. Subjective question: 
    - Asks about a specific viewpoint, argument, or theme presented in the monologue
    - Requires the reader to explain or interpret a particular aspect in their own words
@@ -171,6 +172,7 @@ After creating the dialogue, design five questions that test genuine comprehensi
    - Contains 2-4 words
    - Represents a unique detail from the conversation
    - Cannot be inferred without careful reading
+   - Avoid coordinating conjunctions (for, and, nor, but, or, yet, so)
 5. Subjective question: 
    - Asks about a specific viewpoint, argument, or dynamic presented in the dialogue
    - Requires explaining or interpreting a particular speaker's perspective

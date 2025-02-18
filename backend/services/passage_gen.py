@@ -2,20 +2,15 @@
 Script to generate monologue/dialogue passages with questions
 """
 
+
 from google import genai
 from google.genai import types
-
-from .constants import *
 import time
 
-client = genai.Client(api_key=APIKEY)
+from services.utils import *
+from services.constants import *
 
-def process_json_output(output: str):
-    if output.startswith("```json"):
-        output = output[7:]
-    if output.endswith("```"):
-        output = output[:-3]
-    return output
+client = genai.Client(api_key=APIKEY)
 
 def generate(prompt):
     retry_limit = 3
