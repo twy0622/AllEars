@@ -2,3 +2,6 @@ kokoro
 soundfile
 numpy
 google-genai
+fastapi[standard]
+streamlit
+requests
