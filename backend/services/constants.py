@@ -111,6 +111,7 @@ Before finalizing, verify that:
 - [ ] Questions test different levels of comprehension
 - [ ] JSON structure follows the exact format specified
 - [ ] No placeholders or template language remains
+- [ ] Line breaks use \\n in the JSON output
 
 ## EXECUTION PROCESS
 1. Select a topic randomly from the provided categories
