@@ -15,13 +15,13 @@ async def generate_test():
         passages = []
         for i in range(NUM_MONOLOGUE):
             #* Generate
-            # data = generate_monologue()
-            # with open(f"{TEXT_OUTPUT_DIR}monologue{i}.txt", "w") as f:
-            #     f.write(data)
+            data = generate_monologue()
+            with open(f"{TEXT_OUTPUT_DIR}monologue{i}.txt", "w") as f:
+                f.write(data)
             
-            #* Read
-            with open(f"{TEXT_OUTPUT_DIR}monologue{i}.txt", "r") as f:
-                data = f.read()
+            #* Read (for testing purposes, read existing generated monologue)
+            # with open(f"{TEXT_OUTPUT_DIR}monologue{i}.txt", "r") as f:
+            #     data = f.read()
                 
             data = json.loads(data, strict=False)
             audio_path = synthesize_monologue(data['text'], data['gender'], f"{AUDIO_OUTPUT_DIR}monologue{i}.wav")            
@@ -36,13 +36,13 @@ async def generate_test():
         
         for i in range(NUM_DIALOGUE):
             #* Generate
-            # data = generate_dialogue()
-            # with open(f"{TEXT_OUTPUT_DIR}dialogue{i}.txt", "w") as f:
-            #     f.write(data)
+            data = generate_dialogue()
+            with open(f"{TEXT_OUTPUT_DIR}dialogue{i}.txt", "w") as f:
+                f.write(data)
             
-            #* Read
-            with open(f"{TEXT_OUTPUT_DIR}/dialogue{i}.txt", "r") as f:
-                data = f.read()
+            #* Read (for testing purposes, read existing generated dialogue)
+            # with open(f"{TEXT_OUTPUT_DIR}/dialogue{i}.txt", "r") as f:
+            #     data = f.read()
                 
             data = json.loads(data, strict=False)
             audio_path = synthesize_dialogue(data['dialogue'], f"{AUDIO_OUTPUT_DIR}dialogue{i}.wav")
