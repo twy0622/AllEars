@@ -97,7 +97,7 @@ def main():
     st.title("AllEars 🎧 - English Listening Test")
 
     if st.button("Start Test"):
-        with st.spinner("Generating Test..."):
+        with st.spinner("Generating Test...", show_time=True):
             fetch_test()
 
     if st.session_state.test_data:
