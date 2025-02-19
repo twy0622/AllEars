@@ -245,6 +245,7 @@ Before finalizing, verify that:
 If any IPA transcriptions are needed for non-English terms, use the format: [word](/IPA/) e.g. [Kokoro](/kˈOkəɹO/)
 """
 
+#* Claude-generated prompt
 GRADING_PROMPT = """# GRADING PROMPT FOR SUBJECTIVE QUESTION (Question 5)
 You are an expert assessment evaluator specializing in open-ended responses. Your task is to evaluate a user's answer to a subjective comprehension question about a monologue.
 

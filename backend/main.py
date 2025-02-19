@@ -1,3 +1,4 @@
+import uvicorn
 from fastapi import FastAPI, HTTPException
 from services.passage_gen import *
 from services.audio_gen import synthesize_monologue, synthesize_dialogue
@@ -13,10 +14,16 @@ async def generate_test():
     try:
         passages = []
         for i in range(NUM_MONOLOGUE):
-            data = generate_monologue()
+            #* Generate
+            # data = generate_monologue()
+            # with open(f"{TEXT_OUTPUT_DIR}monologue{i}.txt", "w") as f:
+            #     f.write(data)
+            
+            #* Read
+            with open(f"{TEXT_OUTPUT_DIR}monologue{i}.txt", "r") as f:
+                data = f.read()
+                
             data = json.loads(data, strict=False)
-            with open(f"{TEXT_OUTPUT_DIR}monologue{i}.txt", "w") as f:
-                f.write(data)
             audio_path = synthesize_monologue(data['text'], data['gender'], f"{AUDIO_OUTPUT_DIR}monologue{i}.wav")            
             
             passages.append({
@@ -28,11 +35,17 @@ async def generate_test():
             })
         
         for i in range(NUM_DIALOGUE):
-            data = generate_dialogue()
+            #* Generate
+            # data = generate_dialogue()
+            # with open(f"{TEXT_OUTPUT_DIR}dialogue{i}.txt", "w") as f:
+            #     f.write(data)
+            
+            #* Read
+            with open(f"{TEXT_OUTPUT_DIR}/dialogue{i}.txt", "r") as f:
+                data = f.read()
+                
             data = json.loads(data, strict=False)
-            with open(f"{TEXT_OUTPUT_DIR}dialogue{i}.txt", "w") as f:
-                f.write(data)
-            audio_path = synthesize_dialogue(data['text'], data['gender'], f"{AUDIO_OUTPUT_DIR}dialogue{i}.wav")
+            audio_path = synthesize_dialogue(data['dialogue'], f"{AUDIO_OUTPUT_DIR}dialogue{i}.wav")
             
             passages.append({
                 "type": "dialogue",
@@ -48,16 +61,33 @@ async def generate_test():
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/grade_subjective/")
-async def grade_subjective(user_answer: str, expected_answer: str, question_text: str, passage_text: str):
+async def grade_subjective(data:dict):
     try:
+        user_answer = data.get("user_answer")
+        expected_answer = data.get("expected_answer")
+        question_text = data.get("question_text")
+        passage_text = data.get("passage_text")
+
+        # Validate inputs
+        if not all([user_answer, expected_answer, question_text, passage_text]):
+            raise HTTPException(status_code=400, detail="Missing required fields.")
+        
         grading_input = GRADING_PROMPT.format(
-            monologue_text=passage_text,
+            passage_text=passage_text,
             question5_text=question_text,
             expected_answer=expected_answer,
             user_answer=user_answer
         )
         response = generate(grading_input, 512)
-        grading_result = json.loads(response.text, strict=False)
+        grading_result = json.loads(response, strict=False)
+        
         return grading_result
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+    
+@app.post("/test_json/")
+async def test_json(data: dict):
+    return data.get("user_answer")
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8181)

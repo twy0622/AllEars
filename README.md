@@ -35,6 +35,7 @@ This projects creates an English Listening Test similar to CEFL (Cambridge Engli
 - **Kokoro ONNX Integration**: Less dependencies and can run on edge devices.
 - **Local Leaderboard**: Track your progress over time.  
 - **Difficulty Settings**: Customize tests for Elementary (A2-B1), Intermediate (B2), Advanced (C1), and Proficient (C2) levels.  
+- **Multi-User**: Redis database to keep track of user data.
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
