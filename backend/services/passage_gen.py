@@ -10,6 +10,8 @@ import time
 from services.utils import *
 from services.constants import *
 
+from topic_generation import *
+
 client = genai.Client(api_key=APIKEY)
 
 def generate(prompt, max_tokens=1280):
@@ -29,12 +31,12 @@ def generate(prompt, max_tokens=1280):
 
 def generate_monologue():
     """Generate a monologue and its comprehension questions."""
-    prompt = MONOLOGUE_PROMPT
+    prompt = MONOLOGUE_PROMPT.format(topic=get_monologue_topic())
     return generate(prompt)
 
 def generate_dialogue():
     """Generate a dialogue and its comprehension questions."""
-    prompt = DIALOGUE_PROMPT
+    prompt = DIALOGUE_PROMPT.format(topic=get_dialogue_topic())
     return generate(prompt)
 
 # import sys
