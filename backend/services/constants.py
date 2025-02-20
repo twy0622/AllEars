@@ -21,15 +21,8 @@ You are an expert assessment content creator specializing in language evaluation
 - Language level: B1-B2 (intermediate) with common vocabulary
 - Style: Conversational, relatable, avoiding technical jargon
 
-### TOPIC SELECTION
-<randomly_select_one>
-- Travel and Tourism: A personal trip experience or vacation planning
-- Education and Learning: A learning journey or educational challenge
-- Hobbies and Leisure: A meaningful pastime or cultural experience
-- Health and Well-being: A fitness routine or mental health practice
-- Environment and Nature: A nature encounter or environmental concern
-- Work and Career: A workplace challenge or career development
-</randomly_select_one>
+### TOPIC
+{topic}
 
 ### REQUIRED ELEMENTS
 The monologue MUST include ALL of the following:
@@ -52,7 +45,8 @@ After creating the monologue, design five questions that test genuine comprehens
    - Contains 2-4 words
    - Represents a unique detail from the monologue
    - Cannot be guessed without reading the text
-   - Avoid coordinating conjunctions (for, and, nor, but, or, yet, so)
+   - Avoid common word connectors (for, and, nor, but, or, yet, so, the, at, his, her, its, their)
+   - Avoid brand names as users are prone to spelling errors
 5. Subjective question: 
    - Asks about a specific viewpoint, argument, or theme presented in the monologue
    - Requires the reader to explain or interpret a particular aspect in their own words
@@ -63,43 +57,43 @@ After creating the monologue, design five questions that test genuine comprehens
 Return a JSON object with the following exact structure:
 
 ```json
-{
+{{
   "text": "Full monologue text",
   "gender": "male/female",
-  "topic": "Selected topic category",
-  "question1": {
+  "topic": "Provided topic",
+  "question1": {{
     "question": "Multiple-choice question about a specific detail",
-    "choices": {
+    "choices": {{
       "a": "Choice A",
       "b": "Choice B",
       "c": "Choice C",
       "d": "Choice D"
-    },
+    }},
     "answer": "a/b/c/d"
-  },
-  "question2": {
+  }},
+  "question2": {{
     "question": "Multiple-choice question requiring inference",
-    "choices": {
+    "choices": {{
       "a": "Choice A",
       "b": "Choice B",
       "c": "Choice C",
       "d": "Choice D"
-    },
+    }},
     "answer": "a/b/c/d"
-  },
-  "question3": {
+  }},
+  "question3": {{
     "question": "Gap-fill question with blank for a single word",
     "answer": "specific_word"
-  },
-  "question4": {
+  }},
+  "question4": {{
     "question": "Gap-fill question with blank for a phrase",
     "answer": "specific phrase"
-  },
-  "question5": {
+  }},
+  "question5": {{
     "question": "Question asking for interpretation of a specific viewpoint or theme from the monologue",
     "expected_answer": "Sample response demonstrating understanding of the specific point while using own words"
-  }
-}
+  }}
+}}
 ```
 
 ## VALIDATION CHECKLIST
@@ -114,7 +108,7 @@ Before finalizing, verify that:
 - [ ] Line breaks use \\n in the JSON output
 
 ## EXECUTION PROCESS
-1. Select a topic randomly from the provided categories
+1. Understand the provided topic
 2. Draft the monologue meeting all requirements
 3. Count words to ensure 300-400 total
 4. Create the five questions following specifications
@@ -138,18 +132,10 @@ You are an expert assessment content creator specializing in conversational lang
 - Length: MUST be 200-300 words total
 - Structure: Clear turn-taking with alternating speakers
 - Character consistency: Each speaker must have a distinct voice/personality
-- Scenario: Must be realistic and relatable
 - Language level: B1-B2 (intermediate) with common vocabulary
 
-### SCENARIO SELECTION
-<randomly_select_one>
-- Job Interview: A candidate and interviewer discussing work experience
-- Customer Service: A customer and representative resolving an issue
-- Travel Planning: Two friends or family members planning a trip
-- Health Consultation: A patient and healthcare provider discussion
-- Academic Advising: A student and advisor discussing course options
-- Professional Collaboration: Colleagues discussing a project or problem
-</randomly_select_one>
+### SCENARIO
+{topic}
 
 ### REQUIRED ELEMENTS
 The dialogue MUST include ALL of the following:
@@ -173,7 +159,8 @@ After creating the dialogue, design five questions that test genuine comprehensi
    - Contains 2-4 words
    - Represents a unique detail from the conversation
    - Cannot be inferred without careful reading
-   - Avoid coordinating conjunctions (for, and, nor, but, or, yet, so)
+   - Avoid common word connectors (for, and, nor, but, or, yet, so, the, at, his, her, its, their)
+   - Avoid brand names as users are prone to spelling errors
 5. Subjective question: 
    - Asks about a specific viewpoint, argument, or dynamic presented in the dialogue
    - Requires explaining or interpreting a particular speaker's perspective
@@ -183,43 +170,42 @@ After creating the dialogue, design five questions that test genuine comprehensi
 Return a JSON object with the following exact structure:
 
 ```json
-{
+{{
   "dialogue": "A: [First speaker line]\\nB: [Second speaker line]\\nA: [Next line]\\n...",
-  "word_count": 324,
-  "scenario": "Selected scenario category",
-  "question1": {
+  "scenario": "Provided scenario",
+  "question1": {{
     "question": "Multiple-choice question about specific information",
-    "choices": {
+    "choices": {{
       "a": "Choice A",
       "b": "Choice B",
       "c": "Choice C",
       "d": "Choice D"
-    },
+    }},
     "answer": "a/b/c/d"
-  },
-  "question2": {
+  }},
+  "question2": {{
     "question": "Multiple-choice question requiring inference",
-    "choices": {
+    "choices": {{
       "a": "Choice A",
       "b": "Choice B",
       "c": "Choice C",
       "d": "Choice D"
-    },
+    }},
     "answer": "a/b/c/d"
-  },
-  "question3": {
+  }},
+  "question3": {{
     "question": "Gap-fill question with blank for a single word",
     "answer": "specific_word"
-  },
-  "question4": {
+  }},
+  "question4": {{
     "question": "Gap-fill question with blank for a phrase",
     "answer": "specific phrase"
-  },
-  "question5": {
+  }},
+  "question5": {{
     "question": "Question asking for interpretation of a specific viewpoint or dynamic",
     "expected_answer": "Sample response demonstrating understanding of the specific perspective"
-  }
-}
+  }}
+}}
 ```
 
 ## VALIDATION CHECKLIST
@@ -230,11 +216,13 @@ Before finalizing, verify that:
 - [ ] Each speaker has a consistent voice/personality
 - [ ] Gap-fill answers cannot be guessed without reading
 - [ ] Questions test different levels of comprehension
+
+
 - [ ] JSON structure follows the exact format specified
 - [ ] Line breaks use \\n in the JSON output
 
 ## EXECUTION PROCESS
-1. Select a scenario randomly from the provided categories
+1. Understand the provided scenario
 2. Create speaker profiles with distinct traits/roles
 3. Draft the dialogue meeting all requirements
 4. Count words to ensure 300-400 total
