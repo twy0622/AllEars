@@ -15,13 +15,13 @@ def generate_test():
         questions = []
         for i in range(NUM_MONOLOGUE):
             #* Generate
-            # data = generate_monologue()
-            # with open(f"{TEXT_OUTPUT_DIR}monologue{i}.txt", "w") as f:
-            #     f.write(data)
+            data = generate_monologue()
+            with open(f"{TEXT_OUTPUT_DIR}monologue{i}.txt", "w") as f:
+                f.write(data)
             
             #* Read
-            with open(f"{TEXT_OUTPUT_DIR}monologue{i}.txt", "r") as f:
-                data = f.read()
+            # with open(f"{TEXT_OUTPUT_DIR}monologue{i}.txt", "r") as f:
+            #     data = f.read()
             
             data = json.loads(data, strict=False)
             audio_path = synthesize_monologue(data['text'], data['gender'], f"{AUDIO_OUTPUT_DIR}monologue{i}.wav")
@@ -36,13 +36,13 @@ def generate_test():
         
         for i in range(NUM_DIALOGUE):
             #* Generate
-            # data = generate_dialogue()
-            # with open(f"{TEXT_OUTPUT_DIR}dialogue{i}.txt", "w") as f:
-            #     f.write(data)
+            data = generate_dialogue()
+            with open(f"{TEXT_OUTPUT_DIR}dialogue{i}.txt", "w") as f:
+                f.write(data)
             
             #* Read
-            with open(f"{TEXT_OUTPUT_DIR}/dialogue{i}.txt", "r") as f:
-                data = f.read()
+            # with open(f"{TEXT_OUTPUT_DIR}/dialogue{i}.txt", "r") as f:
+            #     data = f.read()
             
             data = json.loads(data, strict=False)
             audio_path = synthesize_dialogue(data['dialogue'], f"{AUDIO_OUTPUT_DIR}dialogue{i}.wav")
@@ -72,19 +72,19 @@ def grade_subjective(user_answer: str, expected_answer: str, question_text: str,
     return response
 
 #! generate_test() output
-# print(json.dumps(generate_test(), indent=2))
+print(json.dumps(generate_test(), indent=2))
 
 #! grade_subjective output
-with open(f"{TEXT_OUTPUT_DIR}/dialogue0.txt", "r") as f:
-    data = f.read()
-data = json.loads(data, strict=False)
+# with open(f"{TEXT_OUTPUT_DIR}/dialogue0.txt", "r") as f:
+#     data = f.read()
+# data = json.loads(data, strict=False)
 
-print(grade_subjective(
-    user_answer="It is more cost-effective, and provides quicker results.",
-    expected_answer=data['question5']['expected_answer'],
-    question_text=data['question5']['question'],
-    passage_text=data['dialogue']
-))
+# print(grade_subjective(
+#     user_answer="It is more cost-effective, and provides quicker results.",
+#     expected_answer=data['question5']['expected_answer'],
+#     question_text=data['question5']['question'],
+#     passage_text=data['dialogue']
+# ))
 
 # user_answer="It is more cost-effective, and provides quicker results."
 # expected_answer=data['question5']['expected_answer']

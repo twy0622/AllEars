@@ -31,12 +31,16 @@ def generate(prompt, max_tokens=1280):
 
 def generate_monologue():
     """Generate a monologue and its comprehension questions."""
-    prompt = MONOLOGUE_PROMPT.format(topic=get_monologue_topic())
+    selected_topic = get_monologue_topic()
+    print(selected_topic)
+    prompt = MONOLOGUE_PROMPT.format(topic=selected_topic)
     return generate(prompt)
 
 def generate_dialogue():
     """Generate a dialogue and its comprehension questions."""
-    prompt = DIALOGUE_PROMPT.format(topic=get_dialogue_topic())
+    selected_topic = get_dialogue_topic()
+    print(selected_topic)
+    prompt = DIALOGUE_PROMPT.format(topic=selected_topic)
     return generate(prompt)
 
 # import sys

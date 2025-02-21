@@ -15,7 +15,7 @@ You are an expert assessment content creator specializing in language evaluation
 
 ### MONOLOGUE SPECIFICATIONS
 - First-person perspective only
-- Length: MUST be 300-400 words total
+- Length: MUST be 400-500 words total
 - Paragraph structure: Each paragraph MUST contain 50 words maximum
 - Voice: Choose ONE gender (male or female) and maintain consistency
 - Language level: B1-B2 (intermediate) with common vocabulary
@@ -42,11 +42,11 @@ After creating the monologue, design five questions that test genuine comprehens
    - Not easily inferred from context
    - Integral to understanding a key point
 4. Gap-fill question #2: Require an EXACT PHRASE that:
-   - Contains 2-4 words
-   - Represents a unique detail from the monologue
-   - Cannot be guessed without reading the text
-   - Avoid common word connectors (for, and, nor, but, or, yet, so, the, at, his, her, its, their)
-   - Avoid brand names as users are prone to spelling errors
+   - Is a continuous 2-4 word sequence DIRECTLY FROM THE TEXT
+   - Forms a complete syntactic unit (noun phrase, verb phrase, prepositional phrase)
+   - Contains a unique combination that only makes sense in context
+   - Example of VALID: "morning jog routine" or "reusable shopping bags"
+   - Example of INVALID: "loop me" (nonsensical) or "sustainable energy" (common combo)
 5. Subjective question: 
    - Asks about a specific viewpoint, argument, or theme presented in the monologue
    - Requires the reader to explain or interpret a particular aspect in their own words
@@ -98,7 +98,7 @@ Return a JSON object with the following exact structure:
 
 ## VALIDATION CHECKLIST
 Before finalizing, verify that:
-- [ ] Monologue is between 300-400 words
+- [ ] Monologue is between 400-500 words
 - [ ] Each paragraph is 50 words or less
 - [ ] All required elements are present
 - [ ] Gap-fill answers cannot be guessed without reading
@@ -110,7 +110,7 @@ Before finalizing, verify that:
 ## EXECUTION PROCESS
 1. Understand the provided topic
 2. Draft the monologue meeting all requirements
-3. Count words to ensure 300-400 total
+3. Count words to ensure 400-500 total
 4. Create the five questions following specifications
 5. Validate against the checklist
 6. Format the final response in proper JSON with escaped newlines
@@ -156,11 +156,11 @@ After creating the dialogue, design five questions that test genuine comprehensi
    - Critical to understanding a key point
    - Not easily guessed without reading
 4. Gap-fill question #2: Require an EXACT PHRASE that:
-   - Contains 2-4 words
-   - Represents a unique detail from the conversation
-   - Cannot be inferred without careful reading
-   - Avoid common word connectors (for, and, nor, but, or, yet, so, the, at, his, her, its, their)
-   - Avoid brand names as users are prone to spelling errors
+   - Is a verbatim 2-4 word sequence SPOKEN BY A CHARACTER
+   - Forms a meaningful utterance when standing alone
+   - Represents a specific turn of phrase from the dialogue
+   - Example of VALID: "weekly team sync" or "eco-friendly packaging"
+   - Example of INVALID: "her in" (fragment) or "project timeline" (too generic)
 5. Subjective question: 
    - Asks about a specific viewpoint, argument, or dynamic presented in the dialogue
    - Requires explaining or interpreting a particular speaker's perspective
@@ -216,8 +216,6 @@ Before finalizing, verify that:
 - [ ] Each speaker has a consistent voice/personality
 - [ ] Gap-fill answers cannot be guessed without reading
 - [ ] Questions test different levels of comprehension
-
-
 - [ ] JSON structure follows the exact format specified
 - [ ] Line breaks use \\n in the JSON output
 
@@ -225,7 +223,7 @@ Before finalizing, verify that:
 1. Understand the provided scenario
 2. Create speaker profiles with distinct traits/roles
 3. Draft the dialogue meeting all requirements
-4. Count words to ensure 300-400 total
+4. Count words to ensure 200-300 total
 5. Create the five questions following specifications
 6. Validate against the checklist
 7. Format the final response in proper JSON with escaped newlines
