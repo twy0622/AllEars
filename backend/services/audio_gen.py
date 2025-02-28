@@ -5,10 +5,18 @@ import numpy as np
 import re
 
 VOICE_LIST = [
-    'af_heart',     # american female
-    'am_puck',      # american male
-    'bf_emma',      # british female
-    'bm_daniel'     # british male
+    #* american female
+    'af_sky,af_bella,af_heart',
+    'af_sarah,af_sarah,af_heart',
+    #* american male
+    'am_puck,am_fenrir,am_michael',
+    'am_liam,am_liam,am_puck',
+    #* british female
+    'bf_emma,bf_isabella,bf_isabella',
+    'bf_alice,bf_isabella',
+    #* british male
+    'bm_fable,bm_daniel',
+    'bm_lewis,bm_lewis,bm_daniel,bm_fable'
 ]
 
 def synthesize_monologue(text, gender, output_path="audio/monologue.wav"):
@@ -23,9 +31,12 @@ def synthesize_monologue(text, gender, output_path="audio/monologue.wav"):
             voice = random.choice(VOICE_LIST)
 
         lang_code = 'a' if voice.startswith("a") else 'b'
-        
+
         # Create pipeline and process text
         pipeline = KPipeline(lang_code=lang_code)
+        
+        voice = pipeline.load_voice(voice)
+        
         generator = pipeline(
             text, 
             voice=voice,
