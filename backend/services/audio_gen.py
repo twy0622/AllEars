@@ -35,8 +35,6 @@ def synthesize_monologue(text, gender, output_path="audio/monologue.wav"):
         # Create pipeline and process text
         pipeline = KPipeline(lang_code=lang_code)
         
-        voice = pipeline.load_voice(voice)
-        
         generator = pipeline(
             text, 
             voice=voice,
@@ -62,11 +60,16 @@ def synthesize_dialogue(text, output_path="audio/dialogue.wav"):
         # Split text into speaking turns
         turns = re.split(r'\n+', text.strip())
         
-        # Set to american for better quality audio
-        voices = ['af_heart', 'am_puck']
-        lang_code = 'a'
+        lang_code = random.choice(['a','b'])
         
-        voice_mapping = {'A': voices[0], 'B': voices[1]}
+        if lang_code == 'a':
+            male_voice = random.choice([voice for voice in VOICE_LIST if voice.startswith('am')])
+            female_voice = random.choice([voice for voice in VOICE_LIST if voice.startswith('af')])
+        elif lang_code == 'b':
+            male_voice = random.choice([voice for voice in VOICE_LIST if voice.startswith('bm')])
+            female_voice = random.choice([voice for voice in VOICE_LIST if voice.startswith('bf')])
+        
+        voice_mapping = {'A': female_voice, 'B': male_voice}
         
         # Create pipeline and process dialogue
         pipeline = KPipeline(lang_code=lang_code)
