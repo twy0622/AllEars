@@ -13,6 +13,7 @@ This projects creates an English Listening Test similar to CEFL (Cambridge Engli
 - **High-Quality Audio**: Powered by Kokoro TTS for natural-sounding playback.  
 - **Realistic Test Simulation**: Includes a 10-minute timer, no replay options, and instant score display.  
 - **Feedback Mode**: Shows incorrect answers with solutions side-by-side after the test.  
+- **Configurable Passage Count**
 
 ## How It Works
 1. **Start Test**: Click "Start Test" on the home page.  
@@ -27,15 +28,18 @@ This projects creates an English Listening Test similar to CEFL (Cambridge Engli
 
 ## Development Roadmap
 - [x] Core audio generation with Kokoro TTS
-- [ ] Monologue/Dialogue Generation
-- [ ] Question Generation
-- [ ] Web UI Development
+- [x] Monologue/Dialogue Generation
+- [x] Question Generation
+- [x] Web UI Development - Streamlit
 
 ## Future Enhancements
+- **React Web UI**: More refined UI
+- **Configurable Question Count Per Passage**: require dynamic prompt generation
 - **Kokoro ONNX Integration**: Less dependencies and can run on edge devices.
 - **Local Leaderboard**: Track your progress over time.  
 - **Difficulty Settings**: Customize tests for Elementary (A2-B1), Intermediate (B2), Advanced (C1), and Proficient (C2) levels.  
 - **Multi-User**: Redis database to keep track of user data.
+- **Dynamic Question Count**: Configurable number of questions per passage
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
