@@ -33,13 +33,17 @@ This projects creates an English Listening Test similar to CEFL (Cambridge Engli
 - [x] Web UI Development - Streamlit
 
 ## Future Enhancements
-- **React Web UI**: More refined UI
-- **Configurable Question Count Per Passage**: require dynamic prompt generation
-- **Kokoro ONNX Integration**: Less dependencies and can run on edge devices.
-- **Local Leaderboard**: Track your progress over time.  
-- **Difficulty Settings**: Customize tests for Elementary (A2-B1), Intermediate (B2), Advanced (C1), and Proficient (C2) levels.  
-- **Multi-User**: Redis database to keep track of user data.
-- **Dynamic Question Count**: Configurable number of questions per passage
+- **React Web UI**  
+  - Modern interface with progress visualization  
+  - (Currently self-learning React)  
+
+- **CEFR Reference Integration**  
+  - Add B1/B2 sample transcripts to prompts  
+  - Validate generated content against CEFR criteria  
+
+- **Local Leaderboard**  
+  - SQLite database implementation  
+  - Track test scores and CEFR progress
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
